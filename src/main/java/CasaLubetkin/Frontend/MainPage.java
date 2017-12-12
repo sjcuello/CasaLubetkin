@@ -245,9 +245,7 @@ public class MainPage extends javax.swing.JFrame {
         panelOptions.setVisible(false);
         if (optionButton.isSelected()) {
             panelOptions.setVisible(true);  
-        }/*else{
-           panelOpciones.setVisible(true);  
-        }*/
+        }
     }//GEN-LAST:event_optionButtonActionPerformed
 
     private void buttonReaCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonReaCActionPerformed
