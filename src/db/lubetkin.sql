@@ -198,29 +198,29 @@ CREATE TABLE IF NOT EXISTS `births` (
 * Table for represent Sons *
 ***************************/
 
-CREATE TABLE IF NOT EXISTS `sons`(
+CREATE TABLE IF NOT EXISTS `children`(
   `id` INT(11) NOT NULL,
   `hospit` ENUM('Neonatologia','UTI','UCI') NOT NULL,
   `reasonHospit` VARCHAR(140) NOT NULL,
   `previousHospit` BOOLEAN NOT NULL,
   `datepreviousHospit` DATE,
   `reasonpreviousHospit` VARCHAR(140),
-  `GP` INT(11) NOT NULL,
+  `GP` INT(11) NOT NULL, -- General Practioner
   `medCenter` INT(11) NOT NULL,
   created_at TIMESTAMP NULL,
   updated_at TIMESTAMP NULL,
   PRIMARY KEY(`id`),
-  KEY `FK_SONS_1` (`id`),
-  CONSTRAINT `FK_SONS_1` FOREIGN KEY (`id`) REFERENCES `people` (`id`)
-  ON DELETE NO ACTION
+  KEY `FK_CHILDREN_1` (`id`),
+  CONSTRAINT `FK_CHILDREN_1` FOREIGN KEY (`id`) REFERENCES `people` (`id`)
+  ON DELETE CASCADE
   ON UPDATE CASCADE,
-  KEY `FK_SONS_2` (`GP`),
-  CONSTRAINT `FK_SONS_2` FOREIGN KEY (`GP`) REFERENCES `doctors` (`id`)
-  ON DELETE NO ACTION
+  KEY `FK_CHILDREN_2` (`GP`),
+  CONSTRAINT `FK_CHILDREN_2` FOREIGN KEY (`GP`) REFERENCES `doctors` (`id`)
+  ON DELETE CASCADE
   ON UPDATE CASCADE,
-  KEY `FK_SONS_3` (`medCenter`),
-  CONSTRAINT `FK_SONS_3` FOREIGN KEY (`medCenter`) REFERENCES `centers` (`id`)
-  ON DELETE NO ACTION
+  KEY `FK_CHILDREN_3` (`medCenter`),
+  CONSTRAINT `FK_CHILDREN_3` FOREIGN KEY (`medCenter`) REFERENCES `centers` (`id`)
+  ON DELETE CASCADE
   ON UPDATE CASCADE
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
