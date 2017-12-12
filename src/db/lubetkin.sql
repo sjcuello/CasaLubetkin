@@ -70,25 +70,27 @@ CREATE TABLE IF NOT EXISTS `people`(
   ON UPDATE CASCADE
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-/********************************* 
-* Table for represent companions *
-*********************************/
+/************************************************
+* Table for represents phones numbers of people *
+************************************************/
 
-CREATE TABLE IF NOT EXISTS `mTel`(
+CREATE TABLE IF NOT EXISTS `phones`(
   `id` INT(11) NOT NULL,
-  `phone` VARCHAR(15) NOT NULL,
-  `pFamily` VARCHAR(15) NOT NULL,
+  `p` VARCHAR(15) NOT NULL,
+  `pf` VARCHAR(15) NOT NULL,
   created_at TIMESTAMP NULL,
   updated_at TIMESTAMP NULL,
   PRIMARY KEY (`id`),
-  KEY `FK_mTel_1` (`id`),
-  CONSTRAINT `FK_mTel_1` FOREIGN KEY (`id`) REFERENCES `people` (`id`)
-  ON DELETE NO ACTION
+  KEY `FK_PHONE_1` (`id`),
+  CONSTRAINT `FK_PHONE_1` FOREIGN KEY (`id`) REFERENCES `people` (`id`)
+  ON DELETE CASCADE
   ON UPDATE CASCADE
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
--- CREATE TABLE ;
+/********************************* 
+* Table for represent companions *
+*********************************/
 
 CREATE TABLE IF NOT EXISTS `companions`(
   `id` INT(11) NOT NULL,
