@@ -16,18 +16,58 @@
             <url>file:${project.basedir}/lib</url>
         </repository>
     </repositories>
+    <plugins>
+	    <plugin>
+	    	<groupId>org.javalite</groupId>
+	    	<artifactId>activejdbc-instrumentation</artifactId>
+	    	<version>${activejdbc.version}</version>
+	    	<executions>
+	        	<execution>
+	            	<phase>process-classes</phase>
+	            	<goals>
+	        			<goal>instrument</goal>
+	                </goals>
+	            </execution>
+	        </executions>
+	    </plugin>
+	    <plugin>
+	        <groupId>org.javalite</groupId>
+	        <artifactId>db-migrator-maven-plugin</artifactId>
+	        <version>${activejdbc.version}</version>
+	        <configuration>
+	            <configFile>${project.basedir}/src/main/resources/database.properties</configFile>
+	            <environments>${environments}</environments>
+	        </configuration>
+	        <executions>
+	            <execution>
+	                <id>dev_migrations</id>
+	                <phase>validate</phase>
+	                <goals>
+	                    <goal>migrate</goal>
+	                </goals>
+	            </execution>
+	        </executions>
+	        <dependencies>
+	            <dependency>
+	                <groupId>mysql</groupId>
+	                <artifactId>mysql-connector-java</artifactId>
+	                <version>5.1.6</version>
+	            </dependency>
+	        </dependencies>
+	    </plugin>
+    </plugins>
     <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.eclipse.persistence</groupId>
-      <artifactId>eclipselink</artifactId>
-      <version>2.5.2</version>
-    </dependency>
+	    <dependency>
+	      <groupId>junit</groupId>
+	      <artifactId>junit</artifactId>
+	      <version>4.11</version>
+	      <scope>test</scope>
+	    </dependency>
+	    <dependency>
+	      <groupId>org.eclipse.persistence</groupId>
+	      <artifactId>eclipselink</artifactId>
+	      <version>2.5.2</version>
+	    </dependency>
         <dependency>
             <groupId>unknown.binary</groupId>
             <artifactId>AbsoluteLayout</artifactId>
@@ -38,5 +78,15 @@
             <artifactId>beansbinding</artifactId>
             <version>1.2.1</version>
         </dependency>
+        <dependency>
+        	<groupId>org.javalite</groupId>
+        	<artifactId>activejdbc</artifactId>
+        	<version>${activejdbc.version}</version>
+    	</dependency>
+    	<dependency>
+      		<groupId>mysql</groupId>
+      		<artifactId>mysql-connector-java</artifactId>
+      		<version>5.1.6</version>
+    	</dependency>
     </dependencies>
 </project>
