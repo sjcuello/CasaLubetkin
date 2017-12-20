@@ -1,4 +1,4 @@
-package lubetkin;
+package CasaLubetkin.JDBCModels;
 
 import org.javalite.activejdbc.Base;
 import org.javalite.activejdbc.Model;
@@ -7,9 +7,9 @@ import org.javalite.activejdbc.validation.UniquenessValidator;
 public class Place extends Model {
 
   static {
-    validatePresenceOf("city").menssage("Pleas, insert the name of the city");
-    validatePresenceOf("departament").menssage("Pleas, insert the name of the departament");
-    validatePresenceOf("province").menssage("Pleas, insert the name of the province");
+    validatePresenceOf("city").message("Pleas, insert the name of the city");
+    validatePresenceOf("departament").message("Pleas, insert the name of the departament");
+    validatePresenceOf("province").message("Pleas, insert the name of the province");
   }
   
   /** 
@@ -22,12 +22,12 @@ public class Place extends Model {
      * @post. true is returned if the palce was created correctly otherwise
      * false.
      */
-  public static Boolean createPlace(String c, String d, String p){
-    Place p = new Place();
-    p.set("city",c);
-    p.set("departament",d);
-    p.set("province",p);
-    Boolean res = p.save();
+  public static boolean createPlace(String c, String d, String p){
+    Place pl = new Place();
+    pl.set("city",c);
+    pl.set("departament",d);
+    pl.set("province",p);
+    boolean res = pl.save();
     return res;
   }
 }

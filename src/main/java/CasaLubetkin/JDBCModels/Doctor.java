@@ -1,4 +1,4 @@
-package lubetkin;
+package CasaLubetkin.JDBCModels;
 
 import org.javalite.activejdbc.Base;
 import org.javalite.activejdbc.Model;
@@ -6,7 +6,7 @@ import org.javalite.activejdbc.validation.UniquenessValidator;
 
 public class Doctor extends Model{
   static {
-    validatePresenceOf("name").menssage("Pleas, insert the name of the doctor");
+    validatePresenceOf("name").message("Please, insert the name of the doctor");
   }
 
 
@@ -19,10 +19,10 @@ public class Doctor extends Model{
      * false.
   **/
 
-  public static Boolean createCenter(String n){
+  public static boolean createCenter(String n){
     Doctor d = new Doctor();
     d.set("name",n);
-    Boolean res = d.save();
+    boolean res = d.save();
     return res;
   }
 

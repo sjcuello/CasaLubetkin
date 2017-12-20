@@ -1,14 +1,15 @@
-package lubetkin;
+package CasaLubetkin.JDBCModels;
 
 import org.javalite.activejdbc.Base;
 import org.javalite.activejdbc.Model;
 import org.javalite.activejdbc.validation.UniquenessValidator;
 
 public class Center extends Model{
-  static {    
-  	validatePresenceOf("name").menssage("Pleas, insert the name of the center");
-    validatePresenceOf("city").menssage("Say the city where the center is");  
-  }
+  
+    static {    
+  	validatePresenceOf("name").message("Please, insert the name of the center");
+        validatePresenceOf("city").message("Say the city where the center is");  
+    }
 
   /** 
      * function that return true if the center was created correctly
@@ -20,11 +21,11 @@ public class Center extends Model{
      * false.
   **/
 
-  public static Boolean createCenter(String n, int i){
+  public static boolean createCenter(String n, int i){
     Center c = new Center();
     c.set("name",n);
     c.set("id",i);
-    Boolean res = c.save();
+    boolean res = c.save();
     return res;
   }
 }

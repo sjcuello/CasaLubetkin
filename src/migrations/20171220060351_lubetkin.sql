@@ -1,13 +1,4 @@
-/*********************
-* Data Base creation *
-*********************/
-
-CREATE DATABASE IF NOT EXISTS lubetkin;
-use lubetkin;
-
-/*SET DATESTYLE TO 'European';
-
-/****************************** 
+/******************************
 * Table for represent placess *
 ******************************/
 
@@ -21,14 +12,14 @@ CREATE TABLE IF NOT EXISTS `places`(
   PRIMARY KEY(`id`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-/****************************** 
+/******************************
 * Table for represent centers *
 ******************************/
 
 CREATE TABLE IF NOT EXISTS `centers`(
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(50) NOT NULL,
-  `city` INT NOT NULL, 
+  `city` INT NOT NULL,
   created_at TIMESTAMP NULL,
   updated_at TIMESTAMP NULL,
   PRIMARY KEY(`id`),
@@ -38,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `centers`(
   ON UPDATE CASCADE
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-/****************************** 
+/******************************
 * Table for represent doctors *
 ******************************/
 -- CREATE TABLE ;
@@ -49,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `doctors`(
   PRIMARY KEY(`id`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-/***************************** 
+/*****************************
 * Table for represent people *
 *****************************/
 
@@ -88,7 +79,7 @@ CREATE TABLE IF NOT EXISTS `phones`(
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
-/********************************* 
+/*********************************
 * Table for represent companions *
 *********************************/
 
@@ -104,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `companions`(
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
-/****************************** 
+/******************************
 * Table for represent mothers *
 ******************************/
 
@@ -194,7 +185,7 @@ CREATE TABLE IF NOT EXISTS `births` (
 ) ENGINE = InnoDB DEFAULT CHARSET=latin1;
 
 
-/*************************** 
+/***************************
 * Table for represent Sons *
 ***************************/
 
@@ -224,7 +215,7 @@ CREATE TABLE IF NOT EXISTS `children`(
   ON UPDATE CASCADE
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-/********************************** 
+/**********************************
 * Table for represent derivations *
 **********************************/
 
@@ -251,7 +242,7 @@ CREATE TABLE IF NOT EXISTS `derivations`(
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
-/****************************** 
+/******************************
 * Table for represent incomes *
 ******************************/
 
@@ -281,7 +272,7 @@ CREATE TABLE IF NOT EXISTS `incomes`(
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
-/***************************** 
+/*****************************
 * Table for represent egress *
 *****************************/
 
@@ -297,11 +288,10 @@ CREATE TABLE IF NOT EXISTS `egress`(
   `Son` BOOLEAN,
   `pendingControl` DATE,
   created_at TIMESTAMP NULL,
-  updated_at TIMESTAMP NULL, 
+  updated_at TIMESTAMP NULL,
   PRIMARY KEY (`incNum`),
   KEY `FK_EGRESS_1` (`incNum`),
   CONSTRAINT `FK_EGRESS_1` FOREIGN KEY (`incNum`) REFERENCES `incomes` (`id`)
   ON DELETE NO ACTION
   ON UPDATE CASCADE
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
