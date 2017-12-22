@@ -122,7 +122,7 @@ CREATE TABLE IF NOT EXISTS `mothers`(
     'Changarin','Desempleada'
   ) NOT NULL,
   `address` VARCHAR(40) NOT NULL,
-  `numSons` INT NOT NULL,
+  `numChildren` INT NOT NULL,
   `numFamily` INT NOT NULL,
   `GP` INT(11) NOT NULL,
   `medCenter` INT(11) NOT NULL,
@@ -150,13 +150,13 @@ CREATE TABLE IF NOT EXISTS `mothers`(
 CREATE TABLE IF NOT EXISTS `births` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `idMom` INT(11) NOT NULL,
-  `idSon`INT(11) NOT NULL,
+  `idChild`INT(11) NOT NULL,
   `birth` BOOLEAN NOT NULL,
   `gestWeek` INT(2) NOT NULL,
   `pregControl` BOOLEAN NOT NULL,
   `tBirth` ENUM('Espontaneo', 'Asistido', 'Cesarea') NOT NULL,
   `birthWeigth` INT NOT NULL,
-  `placesBirth` INT(11) NOT NULL,
+  `birthPlace` INT(11) NOT NULL,
   `medCenter` INT(11) NOT NULL,
   `idMed` INT(11) NOT NULL,
   created_at TIMESTAMP NULL,
@@ -250,7 +250,7 @@ CREATE TABLE IF NOT EXISTS `incomes`(
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `idMom` INT NOT NULL,
   `reasonHospit` ENUM('ControlEmbarazo','Parto','ControlHijo','InterHijo')  NOT NULL,
-  `idSon` INT,
+  `idChild` INT,
   `companions` BOOLEAN NOT NULL,
   `idComp`INT,
   `registrant` VARCHAR(25) NOT NULL,
@@ -276,7 +276,8 @@ CREATE TABLE IF NOT EXISTS `incomes`(
 * Table for represent egress *
 *****************************/
 
-CREATE TABLE IF NOT EXISTS `egress`(
+CREATE TABLE IF NOT EXISTS `expenses`(
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
   `incNum` INT NOT NULL,
   `duration` INT NOT NULL,
   `lactation` ENUM('Total','Complementaria'),
@@ -285,11 +286,11 @@ CREATE TABLE IF NOT EXISTS `egress`(
   `psychoAssis` BOOLEAN NOT NULL,
   `talks` ENUM('Lactancia', 'CADA', 'Alta_Segura', 'RCP', 'At._Temp'),
   `registrant` VARCHAR(25) NOT NULL,
-  `Son` BOOLEAN,
-  `pendingControl` DATE,
+  `child` BOOLEAN,
+  `pendingControl` TIMESTAMP,
   created_at TIMESTAMP NULL,
   updated_at TIMESTAMP NULL,
-  PRIMARY KEY (`incNum`),
+  PRIMARY KEY (`id`),
   KEY `FK_EGRESS_1` (`incNum`),
   CONSTRAINT `FK_EGRESS_1` FOREIGN KEY (`incNum`) REFERENCES `incomes` (`id`)
   ON DELETE NO ACTION
