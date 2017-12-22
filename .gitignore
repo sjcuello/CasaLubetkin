@@ -1,5 +1,6 @@
 # Compiled class file
 *.class
+*.form
 
 # Log file
 *.log
