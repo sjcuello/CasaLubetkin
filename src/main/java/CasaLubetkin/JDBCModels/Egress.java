@@ -1,12 +1,13 @@
 package CasaLubetkin.JDBCModels;
 
+import java.sql.Timestamp;
 import org.javalite.activejdbc.Base;
 import org.javalite.activejdbc.Model;
 
 /**
  *This class is a model that represents the table expenses in the database.
  *Creation date 22/12/2017.
- *Last Update 22/12/2017.
+ *Last Update 03/01/2018.
  *@author Gonzalez,Cristian.
 */
 public class Egress extends Model{
@@ -38,16 +39,16 @@ public class Egress extends Model{
         Timestamp pendingControl)
     {
         Egress egress = new Egress();
-        set("incNum",incNum);
-        set("duration",duration);
-        set("lactation",lactation);
-        set("deliveryItems",deliveryItems);
-        set("paid",paid);
-        set("psychoAssis",psychoAssis);
-        set("talks",talks);
-        set("registrant",registrant);
-        set("child",child);
-        set("pendingControl",pendingControl);
+        egress.set("incNum",incNum);
+        egress.set("duration",duration);
+        egress.set("lactation",lactation);
+        egress.set("deliveryItems",deliveryItems);
+        egress.set("paid",paid);
+        egress.set("psychoAssis",psychoAssis);
+        egress.set("talks",talks);
+        egress.set("registrant",registrant);
+        egress.set("child",child);
+        egress.set("pendingControl",pendingControl);
         return egress.save();        
     }
 }
