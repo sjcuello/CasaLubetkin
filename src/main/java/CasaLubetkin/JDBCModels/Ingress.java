@@ -31,12 +31,12 @@ public class Ingress extends Model{
     */
     public static boolean setIngress(int idMom,String reasonHospit,int idChild,boolean companions,int idComp,String registrant){
         Ingress ingress = new Ingress();
-        set("idMom",idMom);
-        set("reasonHospit",reasonHospit);
-        set("idChild",idChild);
-        set("companions",companions);
-        set("idComp",idComp);
-        set("registrant",registrant);
+        ingress.set("idMom",idMom);
+        ingress.set("reasonHospit",reasonHospit);
+        ingress.set("idChild",idChild);
+        ingress.set("companions",companions);
+        ingress.set("idComp",idComp);
+        ingress.set("registrant",registrant);
         return ingress.save();
     }
 }
