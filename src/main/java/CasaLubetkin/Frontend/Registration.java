@@ -21,14 +21,17 @@ public class Registration extends javax.swing.JFrame {
     private static boolean select;
     
     //@param s will be used to store the type of view
+    //true == panelIng / false == panelEg
     public Registration(boolean s) {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("Casa Lubetkin");
         Registration.select = s;
-        if (s) {
+        if (s) { 
             panelRegEg.setVisible(false);
             panelRegIng.setVisible(true);
+            panelTypeTreatment.setVisible(false);
+            panelDataMotherChild.setVisible(false);
         } else {
             panelRegIng.setVisible(false);
             panelRegEg.setVisible(true);
@@ -54,6 +57,7 @@ public class Registration extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        tipoPersonaIngreso = new javax.swing.ButtonGroup();
         panelPrincipal = new javax.swing.JPanel();
         panelOptions = new javax.swing.JPanel();
         buttonPrint = new javax.swing.JButton();
@@ -61,6 +65,97 @@ public class Registration extends javax.swing.JFrame {
         optionButton = new javax.swing.JToggleButton();
         panelRegIng = new javax.swing.JPanel();
         labelIngreso = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        panelDataMotherChild = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jTextField9 = new javax.swing.JTextField();
+        jTextField10 = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        jComboBox7 = new javax.swing.JComboBox<>();
+        jLabel21 = new javax.swing.JLabel();
+        jTextField11 = new javax.swing.JTextField();
+        jLabel22 = new javax.swing.JLabel();
+        jComboBox8 = new javax.swing.JComboBox<>();
+        rbPregnancyControls = new javax.swing.JRadioButton();
+        jLabel23 = new javax.swing.JLabel();
+        jTextField12 = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
+        jTextField13 = new javax.swing.JTextField();
+        jLabel25 = new javax.swing.JLabel();
+        jTextField14 = new javax.swing.JTextField();
+        jLabel26 = new javax.swing.JLabel();
+        jTextField15 = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jComboBox9 = new javax.swing.JComboBox<>();
+        jComboBox10 = new javax.swing.JComboBox<>();
+        jComboBox11 = new javax.swing.JComboBox<>();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jTextField16 = new javax.swing.JTextField();
+        jLabel31 = new javax.swing.JLabel();
+        jTextField17 = new javax.swing.JTextField();
+        jLabel32 = new javax.swing.JLabel();
+        jTextField18 = new javax.swing.JTextField();
+        rbLastInternment = new javax.swing.JRadioButton();
+        panelLastInternment = new javax.swing.JPanel();
+        jLabel35 = new javax.swing.JLabel();
+        jComboBox12 = new javax.swing.JComboBox<>();
+        jComboBox13 = new javax.swing.JComboBox<>();
+        jComboBox14 = new javax.swing.JComboBox<>();
+        jLabel36 = new javax.swing.JLabel();
+        jTextField21 = new javax.swing.JTextField();
+        jLabel33 = new javax.swing.JLabel();
+        jTextField19 = new javax.swing.JTextField();
+        jLabel34 = new javax.swing.JLabel();
+        jTextField20 = new javax.swing.JTextField();
+        jLabel37 = new javax.swing.JLabel();
+        jTextField22 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
+        list1 = new java.awt.List();
+        choice1 = new java.awt.Choice();
+        Dia = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
+        jComboBox4 = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
+        jTextField5 = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jComboBox5 = new javax.swing.JComboBox<>();
+        checkbox1 = new java.awt.Checkbox();
+        rbMother = new javax.swing.JRadioButton();
+        rbAccompanyingFamily = new javax.swing.JRadioButton();
+        rbMotherwBaby = new javax.swing.JRadioButton();
+        rbAccompanyingFamilyTransit = new javax.swing.JRadioButton();
+        jLabel1 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jTextField6 = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jComboBox6 = new javax.swing.JComboBox<>();
+        jLabel14 = new javax.swing.JLabel();
+        jTextField7 = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jTextField8 = new javax.swing.JTextField();
+        rbMedicalTreatment = new javax.swing.JRadioButton();
+        panelTypeTreatment = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jComboBox15 = new javax.swing.JComboBox<>();
         panelRegEg = new javax.swing.JPanel();
         labelEgreso = new javax.swing.JLabel();
 
@@ -127,20 +222,726 @@ public class Registration extends javax.swing.JFrame {
         labelIngreso.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         labelIngreso.setText("Registrar ingreso");
 
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel2.setText("Habitacion Nº:");
+        jLabel2.setToolTipText("");
+
+        jTextField1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTextField1.setToolTipText("");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel3.setText("Datos basicos");
+        jLabel3.setToolTipText("");
+
+        jLabel17.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel17.setText("Datos de salud de madre ");
+
+        jLabel18.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel18.setText("Cantidad de hijos:");
+
+        jLabel19.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel19.setText("Cantidad de miembros en la familia:");
+
+        jTextField9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTextField9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField9ActionPerformed(evt);
+            }
+        });
+
+        jTextField10.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        jLabel20.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel20.setText("Tipo de parto:");
+
+        jComboBox7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Parto espontaneo", "Parto asistido", "Cesarea" }));
+        jComboBox7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox7ActionPerformed(evt);
+            }
+        });
+
+        jLabel21.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel21.setText("Semanas de gestacion:");
+
+        jTextField11.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        jLabel22.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel22.setText("Internado en:");
+
+        jComboBox8.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Neonatología", "UTI Pediatria", " " }));
+
+        rbPregnancyControls.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        rbPregnancyControls.setText("Controles durante el embarazo");
+        rbPregnancyControls.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbPregnancyControlsActionPerformed(evt);
+            }
+        });
+
+        jLabel23.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel23.setText("Nombre :");
+
+        jTextField12.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        jLabel24.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel24.setText("Apellido :");
+
+        jTextField13.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        jLabel25.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel25.setText("Documento:");
+
+        jTextField14.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        jLabel26.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel26.setText("Lugar de internacion:");
+
+        jTextField15.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        jLabel27.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel27.setText("Fecha de nacimiento (dd/mm/aaaa) :");
+
+        jLabel28.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel28.setText("Datos de salud de hijo internado");
+
+        jComboBox9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+
+        jComboBox10.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jComboBox10.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12" }));
+
+        jComboBox11.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jComboBox11.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030" }));
+
+        jLabel29.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel29.setText("Datos internacion del hijo");
+
+        jLabel30.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel30.setText("Peso al nacer:");
+
+        jTextField16.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        jLabel31.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel31.setText("Medico de cabecera:");
+
+        jTextField17.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        jLabel32.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel32.setText("Medico de cabecera:");
+
+        jTextField18.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        rbLastInternment.setText("Su hijo estuvo internado antes");
+        rbLastInternment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbLastInternmentActionPerformed(evt);
+            }
+        });
+
+        jLabel35.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel35.setText("Fecha de la ultima internacion (dd/mm/aaaa):");
+
+        jComboBox12.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jComboBox12.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jComboBox13.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jComboBox13.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jComboBox14.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jComboBox14.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel36.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel36.setText("Motivo de la ultima internacion:");
+
+        jTextField21.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        javax.swing.GroupLayout panelLastInternmentLayout = new javax.swing.GroupLayout(panelLastInternment);
+        panelLastInternment.setLayout(panelLastInternmentLayout);
+        panelLastInternmentLayout.setHorizontalGroup(
+            panelLastInternmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLastInternmentLayout.createSequentialGroup()
+                .addGroup(panelLastInternmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelLastInternmentLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addGroup(panelLastInternmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel35)
+                            .addGroup(panelLastInternmentLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jComboBox12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jComboBox13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jComboBox14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLastInternmentLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jTextField21)))
+                .addContainerGap())
+            .addGroup(panelLastInternmentLayout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addComponent(jLabel36)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelLastInternmentLayout.setVerticalGroup(
+            panelLastInternmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLastInternmentLayout.createSequentialGroup()
+                .addComponent(jLabel35)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelLastInternmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel36)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jLabel33.setText("Centro asistencial al que asiste:");
+
+        jLabel34.setText("Motivo de la internacion:");
+
+        jLabel37.setText("Derivacion:");
+
+        javax.swing.GroupLayout panelDataMotherChildLayout = new javax.swing.GroupLayout(panelDataMotherChild);
+        panelDataMotherChild.setLayout(panelDataMotherChildLayout);
+        panelDataMotherChildLayout.setHorizontalGroup(
+            panelDataMotherChildLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDataMotherChildLayout.createSequentialGroup()
+                .addGroup(panelDataMotherChildLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelDataMotherChildLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(panelDataMotherChildLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelDataMotherChildLayout.createSequentialGroup()
+                                .addGap(19, 19, 19)
+                                .addGroup(panelDataMotherChildLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(panelDataMotherChildLayout.createSequentialGroup()
+                                        .addComponent(jLabel27)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jComboBox11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel31)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(panelDataMotherChildLayout.createSequentialGroup()
+                                        .addComponent(jLabel23)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel24)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel25)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel30)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabel28)))
+                    .addGroup(panelDataMotherChildLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel17))
+                    .addGroup(panelDataMotherChildLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(panelDataMotherChildLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelDataMotherChildLayout.createSequentialGroup()
+                                .addComponent(rbPregnancyControls)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel32)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelDataMotherChildLayout.createSequentialGroup()
+                                .addComponent(jLabel18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel19)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(31, 31, 31)
+                                .addComponent(jLabel20)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel21)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(panelDataMotherChildLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(panelDataMotherChildLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelDataMotherChildLayout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addGroup(panelDataMotherChildLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(panelDataMotherChildLayout.createSequentialGroup()
+                                        .addComponent(jLabel26)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel22)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(rbLastInternment))
+                                    .addGroup(panelDataMotherChildLayout.createSequentialGroup()
+                                        .addComponent(jLabel33)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(panelDataMotherChildLayout.createSequentialGroup()
+                                        .addComponent(jLabel34)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(panelDataMotherChildLayout.createSequentialGroup()
+                                        .addComponent(jLabel37)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(panelLastInternment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(panelDataMotherChildLayout.createSequentialGroup()
+                                .addComponent(jLabel29)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addContainerGap())
+        );
+        panelDataMotherChildLayout.setVerticalGroup(
+            panelDataMotherChildLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDataMotherChildLayout.createSequentialGroup()
+                .addComponent(jLabel17)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelDataMotherChildLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(jLabel19)
+                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel20)
+                    .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel21)
+                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelDataMotherChildLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rbPregnancyControls)
+                    .addComponent(jLabel32)
+                    .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelDataMotherChildLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel23)
+                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel24)
+                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel25)
+                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel30)
+                    .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelDataMotherChildLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel27)
+                    .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel31)
+                    .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelDataMotherChildLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelDataMotherChildLayout.createSequentialGroup()
+                        .addGroup(panelDataMotherChildLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel26)
+                            .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel22)
+                            .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(rbLastInternment))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelDataMotherChildLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel34)
+                            .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelDataMotherChildLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel33)
+                            .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelDataMotherChildLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel37)
+                            .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(panelLastInternment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jLabel4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel4.setText("Nombre:");
+        jLabel4.setToolTipText("");
+
+        jTextField3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTextField3.setToolTipText("");
+
+        jLabel5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel5.setText("Documento:");
+        jLabel5.setToolTipText("");
+
+        jTextField4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTextField4.setToolTipText("");
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField4ActionPerformed(evt);
+            }
+        });
+
+        Dia.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        Dia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        Dia.setToolTipText("");
+
+        jLabel6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel6.setText("Fecha de nacimiento (dd/mm/aa): ");
+        jLabel6.setToolTipText("");
+
+        jComboBox1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12" }));
+        jComboBox1.setToolTipText("");
+
+        jComboBox2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1940", "1941", "1942", "1943", "1944", "1945", "1946", "1947", "1948", "1949", "1950", "1951", "1952", "1953", "1954", "1955", "1956", "1957", "1958", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", " " }));
+        jComboBox2.setToolTipText("");
+
+        jLabel10.setText("jLabel10");
+
+        jLabel7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel7.setText("Estado civil:");
+        jLabel7.setToolTipText("");
+
+        jComboBox3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Soltera", "Casada", "En concubinato", "Divorciada", "Viuda" }));
+        jComboBox3.setToolTipText("");
+
+        jLabel8.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel8.setText("Ocupacion:");
+        jLabel8.setToolTipText("");
+
+        jComboBox4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ama de casa", "Empleada", "Cuentapropista", "Changarin", "Desempleada" }));
+        jComboBox4.setToolTipText("");
+
+        jLabel9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel9.setText("Apellido:");
+        jLabel9.setToolTipText("");
+
+        jTextField5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTextField5.setToolTipText("");
+        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField5ActionPerformed(evt);
+            }
+        });
+
+        jLabel11.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel11.setText("Nivel de estudio:");
+        jLabel11.setToolTipText("");
+
+        jComboBox5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Primario completo", "Primario incompleto", "Secundario completo", "Secundario incompleto", "No sabe leer y escribir", "Otro" }));
+        jComboBox5.setToolTipText("");
+
+        checkbox1.setLabel("checkbox1");
+
+        tipoPersonaIngreso.add(rbMother);
+        rbMother.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        rbMother.setText("Madre");
+        rbMother.setToolTipText("");
+        rbMother.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbMotherActionPerformed(evt);
+            }
+        });
+
+        tipoPersonaIngreso.add(rbAccompanyingFamily);
+        rbAccompanyingFamily.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        rbAccompanyingFamily.setText("Familiar acompañante");
+        rbAccompanyingFamily.setToolTipText("");
+        rbAccompanyingFamily.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbAccompanyingFamilyActionPerformed(evt);
+            }
+        });
+
+        tipoPersonaIngreso.add(rbMotherwBaby);
+        rbMotherwBaby.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        rbMotherwBaby.setText("Madre con bebe a control");
+        rbMotherwBaby.setToolTipText("");
+        rbMotherwBaby.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbMotherwBabyActionPerformed(evt);
+            }
+        });
+
+        tipoPersonaIngreso.add(rbAccompanyingFamilyTransit);
+        rbAccompanyingFamilyTransit.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        rbAccompanyingFamilyTransit.setText("Familiar acompañante en transito");
+        rbAccompanyingFamilyTransit.setToolTipText("");
+        rbAccompanyingFamilyTransit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbAccompanyingFamilyTransitActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel1.setText("Domicilio:");
+        jLabel1.setToolTipText("");
+
+        jTextField2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTextField2.setToolTipText("");
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+
+        jLabel12.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel12.setText("Localidad:");
+        jLabel12.setToolTipText("");
+
+        jTextField6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTextField6.setToolTipText("");
+
+        jLabel13.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel13.setText("Provincia:");
+        jLabel13.setToolTipText("");
+
+        jComboBox6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cordoba", "San Luis", "La Pampa", "Buenos Aires", "Santa Fe", "Santiago del Estero", "Catamarca", "La Rioja" }));
+        jComboBox6.setToolTipText("");
+        jComboBox6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox6ActionPerformed(evt);
+            }
+        });
+
+        jLabel14.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel14.setText("Telefono particular:");
+        jLabel14.setToolTipText("");
+
+        jTextField7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTextField7.setToolTipText("");
+
+        jLabel15.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel15.setText("Telefono familiar:");
+        jLabel15.setToolTipText("");
+
+        jTextField8.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTextField8.setToolTipText("");
+
+        rbMedicalTreatment.setText("Tratamiento medico");
+        rbMedicalTreatment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbMedicalTreatmentActionPerformed(evt);
+            }
+        });
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jLabel16.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel16.setText("Tipo de tratamiento / Medicacion");
+
+        javax.swing.GroupLayout panelTypeTreatmentLayout = new javax.swing.GroupLayout(panelTypeTreatment);
+        panelTypeTreatment.setLayout(panelTypeTreatmentLayout);
+        panelTypeTreatmentLayout.setHorizontalGroup(
+            panelTypeTreatmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelTypeTreatmentLayout.createSequentialGroup()
+                .addGap(313, 313, 313)
+                .addComponent(jLabel16)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTypeTreatmentLayout.createSequentialGroup()
+                .addContainerGap(32, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 758, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
+        );
+        panelTypeTreatmentLayout.setVerticalGroup(
+            panelTypeTreatmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTypeTreatmentLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jLabel38.setText("Departamento:");
+
+        jComboBox15.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout panelRegIngLayout = new javax.swing.GroupLayout(panelRegIng);
         panelRegIng.setLayout(panelRegIngLayout);
         panelRegIngLayout.setHorizontalGroup(
             panelRegIngLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRegIngLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(labelIngreso)
-                .addGap(382, 382, 382))
+            .addComponent(panelDataMotherChild, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(panelRegIngLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelRegIngLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRegIngLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panelRegIngLayout.createSequentialGroup()
+                            .addGroup(panelRegIngLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(panelRegIngLayout.createSequentialGroup()
+                                    .addGap(361, 361, 361)
+                                    .addComponent(labelIngreso))
+                                .addGroup(panelRegIngLayout.createSequentialGroup()
+                                    .addComponent(rbMedicalTreatment)
+                                    .addGap(14, 14, 14)
+                                    .addComponent(panelTypeTreatment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGap(0, 0, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRegIngLayout.createSequentialGroup()
+                            .addGroup(panelRegIngLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(panelRegIngLayout.createSequentialGroup()
+                                    .addComponent(jLabel2)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(rbMother)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(rbAccompanyingFamily)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(rbMotherwBaby)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(rbAccompanyingFamilyTransit))
+                                .addGroup(panelRegIngLayout.createSequentialGroup()
+                                    .addComponent(jLabel4)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(26, 26, 26)
+                                    .addComponent(jLabel9)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jLabel5)
+                                    .addGap(10, 10, 10)
+                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(12, 12, 12)
+                                    .addComponent(jLabel7)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(panelRegIngLayout.createSequentialGroup()
+                                    .addGroup(panelRegIngLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelRegIngLayout.createSequentialGroup()
+                                            .addComponent(jLabel1)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jTextField2))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelRegIngLayout.createSequentialGroup()
+                                            .addComponent(jLabel6)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(Dia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(panelRegIngLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(panelRegIngLayout.createSequentialGroup()
+                                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(jLabel8)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(jLabel11)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(panelRegIngLayout.createSequentialGroup()
+                                            .addGap(10, 10, 10)
+                                            .addComponent(jLabel12)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(jLabel38)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jComboBox15, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(24, 24, 24)
+                                            .addComponent(jLabel13)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(panelRegIngLayout.createSequentialGroup()
+                                    .addComponent(jLabel14)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jLabel15)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGap(26, 26, 26)))
+                    .addGroup(panelRegIngLayout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         panelRegIngLayout.setVerticalGroup(
             panelRegIngLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRegIngLayout.createSequentialGroup()
-                .addGap(48, 48, 48)
+                .addContainerGap()
                 .addComponent(labelIngreso)
+                .addGap(12, 12, 12)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelRegIngLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rbMother)
+                    .addComponent(rbAccompanyingFamily)
+                    .addComponent(rbMotherwBaby)
+                    .addComponent(rbAccompanyingFamilyTransit))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelRegIngLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9)
+                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7)
+                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(14, 14, 14)
+                .addGroup(panelRegIngLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(Dia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8)
+                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11)
+                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelRegIngLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12)
+                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel38)
+                    .addComponent(jComboBox15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13)
+                    .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelRegIngLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelRegIngLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelRegIngLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel14)
+                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel15)
+                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(rbMedicalTreatment))
+                    .addGroup(panelRegIngLayout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addComponent(panelTypeTreatment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelDataMotherChild, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -153,17 +954,17 @@ public class Registration extends javax.swing.JFrame {
         panelRegEg.setLayout(panelRegEgLayout);
         panelRegEgLayout.setHorizontalGroup(
             panelRegEgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRegEgLayout.createSequentialGroup()
-                .addContainerGap(444, Short.MAX_VALUE)
+            .addGroup(panelRegEgLayout.createSequentialGroup()
+                .addGap(400, 400, 400)
                 .addComponent(labelEgreso)
-                .addGap(382, 382, 382))
+                .addContainerGap(426, Short.MAX_VALUE))
         );
         panelRegEgLayout.setVerticalGroup(
             panelRegEgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRegEgLayout.createSequentialGroup()
-                .addGap(48, 48, 48)
+                .addContainerGap()
                 .addComponent(labelEgreso)
-                .addContainerGap(608, Short.MAX_VALUE))
+                .addContainerGap(645, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelPrincipalLayout = new javax.swing.GroupLayout(panelPrincipal);
@@ -231,6 +1032,72 @@ public class Registration extends javax.swing.JFrame {
         mp.setVisible(true);
     }//GEN-LAST:event_buttonBackActionPerformed
 
+    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField5ActionPerformed
+
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void rbAccompanyingFamilyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAccompanyingFamilyActionPerformed
+        panelDataMotherChild.setVisible(false);
+    }//GEN-LAST:event_rbAccompanyingFamilyActionPerformed
+
+    private void rbAccompanyingFamilyTransitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAccompanyingFamilyTransitActionPerformed
+        panelDataMotherChild.setVisible(false);
+    }//GEN-LAST:event_rbAccompanyingFamilyTransitActionPerformed
+
+    private void rbMotherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbMotherActionPerformed
+        if (rbMother.isSelected()){
+            panelDataMotherChild.setVisible(true);
+            panelLastInternment.setVisible(false);
+        }else
+            panelDataMotherChild.setVisible(false);
+    }//GEN-LAST:event_rbMotherActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void rbMedicalTreatmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbMedicalTreatmentActionPerformed
+        if(rbMedicalTreatment.isSelected())
+            panelTypeTreatment.setVisible(true);
+        else
+            panelTypeTreatment.setVisible(false);
+    }//GEN-LAST:event_rbMedicalTreatmentActionPerformed
+
+    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField9ActionPerformed
+
+    private void jComboBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox7ActionPerformed
+
+    private void rbPregnancyControlsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbPregnancyControlsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbPregnancyControlsActionPerformed
+
+    private void jComboBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox6ActionPerformed
+
+    private void rbMotherwBabyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbMotherwBabyActionPerformed
+        panelDataMotherChild.setVisible(false);
+    }//GEN-LAST:event_rbMotherwBabyActionPerformed
+
+    private void rbLastInternmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbLastInternmentActionPerformed
+        if(rbLastInternment.isSelected())
+            panelLastInternment.setVisible(true);
+        else
+            panelLastInternment.setVisible(false);
+    }//GEN-LAST:event_rbLastInternmentActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -267,14 +1134,106 @@ public class Registration extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> Dia;
     private javax.swing.JButton buttonBack;
     private javax.swing.JButton buttonPrint;
+    private java.awt.Checkbox checkbox1;
+    private java.awt.Choice choice1;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox10;
+    private javax.swing.JComboBox<String> jComboBox11;
+    private javax.swing.JComboBox<String> jComboBox12;
+    private javax.swing.JComboBox<String> jComboBox13;
+    private javax.swing.JComboBox<String> jComboBox14;
+    private javax.swing.JComboBox<String> jComboBox15;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> jComboBox4;
+    private javax.swing.JComboBox<String> jComboBox5;
+    private javax.swing.JComboBox<String> jComboBox6;
+    private javax.swing.JComboBox<String> jComboBox7;
+    private javax.swing.JComboBox<String> jComboBox8;
+    private javax.swing.JComboBox<String> jComboBox9;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField10;
+    private javax.swing.JTextField jTextField11;
+    private javax.swing.JTextField jTextField12;
+    private javax.swing.JTextField jTextField13;
+    private javax.swing.JTextField jTextField14;
+    private javax.swing.JTextField jTextField15;
+    private javax.swing.JTextField jTextField16;
+    private javax.swing.JTextField jTextField17;
+    private javax.swing.JTextField jTextField18;
+    private javax.swing.JTextField jTextField19;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField20;
+    private javax.swing.JTextField jTextField21;
+    private javax.swing.JTextField jTextField22;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel labelEgreso;
     private javax.swing.JLabel labelIngreso;
+    private java.awt.List list1;
     private javax.swing.JToggleButton optionButton;
+    private javax.swing.JPanel panelDataMotherChild;
+    private javax.swing.JPanel panelLastInternment;
     private javax.swing.JPanel panelOptions;
     private javax.swing.JPanel panelPrincipal;
     private javax.swing.JPanel panelRegEg;
     private javax.swing.JPanel panelRegIng;
+    private javax.swing.JPanel panelTypeTreatment;
+    private javax.swing.JRadioButton rbAccompanyingFamily;
+    private javax.swing.JRadioButton rbAccompanyingFamilyTransit;
+    private javax.swing.JRadioButton rbLastInternment;
+    private javax.swing.JRadioButton rbMedicalTreatment;
+    private javax.swing.JRadioButton rbMother;
+    private javax.swing.JRadioButton rbMotherwBaby;
+    private javax.swing.JRadioButton rbPregnancyControls;
+    private javax.swing.ButtonGroup tipoPersonaIngreso;
     // End of variables declaration//GEN-END:variables
 }
