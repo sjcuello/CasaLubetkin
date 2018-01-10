@@ -45,16 +45,6 @@ public class Place extends Model {
     }
 
     /**
-     * Function that returns the id of a given place a department.
-     * @param department is the department to consult.
-     * @return the id of a given place a department.
-     */
-    public static int getIdByDepartment(String department) {
-        Place place = Place.findFirst("department",department);
-        return (int) place.get("id");
-    }
-    
-    /**
      * Function that returns all the localities.
      * @return a list with all the localities.
      */
@@ -88,12 +78,12 @@ public class Place extends Model {
      * @param department is the department to consult.
      * @return a list with the ids of all the locations of a department.
      */
-    public static List<Integer> getLocationsOfADepartment(String department){
+    public static List<String> getLocationsOfADepartment(String department){
         List<Place> places = Place.where("department = ?",department);
-        List<Integer> localities = new ArrayList<>();
+        List<String> localities = new ArrayList<>();
         for (Place place : places) {
-                localities.add((Integer)place.get("id"));
-            }
+            localities.add(place.getString("city"));
+        }
         return localities;
     }
 }
