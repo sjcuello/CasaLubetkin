@@ -78,23 +78,6 @@ CREATE TABLE IF NOT EXISTS `phones`(
   ON UPDATE CASCADE
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-
-/*********************************
-* Table for represent companions *
-*********************************/
-
-CREATE TABLE IF NOT EXISTS `companions`(
-  `id` INT(11) NOT NULL,
-  created_at TIMESTAMP NULL,
-  updated_at TIMESTAMP NULL,
-  PRIMARY KEY(`id`),
-  KEY `FK_COMPANIONS_1` (`id`),
-  CONSTRAINT `FK_COMPANIONS_1` FOREIGN KEY (`id`) REFERENCES `people` (`id`)
-  ON DELETE NO ACTION
-  ON UPDATE CASCADE
-)ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
 /******************************
 * Table for represent mothers *
 ******************************/
@@ -246,9 +229,12 @@ CREATE TABLE IF NOT EXISTS `derivations`(
 * Table for represent incomes *
 ******************************/
 
-CREATE TABLE IF NOT EXISTS `incomes`(
+CREATE TABLE IF NOT EXISTS `income`(
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `idMom` INT NOT NULL,
+  ´date´  INT NOT NULL,
+  ´month´ INT NOT NULL,
+  ´year´  INT NOT NULL,
   `reasonHospit` ENUM('ControlEmbarazo','Parto','ControlHijo','InterHijo')  NOT NULL,
   `idChild` INT,
   `companions` BOOLEAN NOT NULL,
@@ -276,9 +262,12 @@ CREATE TABLE IF NOT EXISTS `incomes`(
 * Table for represent egress *
 *****************************/
 
-CREATE TABLE IF NOT EXISTS `expenses`(
+CREATE TABLE IF NOT EXISTS `expense`(
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `incNum` INT NOT NULL,
+  ´date´  INT NOT NULL,
+  ´month´ INT NOT NULL,
+  ´year´  INT NOT NULL,
   `duration` INT NOT NULL,
   `lactation` ENUM('Total','Complementaria'),
   `deliveryItems` BOOLEAN NOT NULL,
