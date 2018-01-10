@@ -6,7 +6,7 @@ import org.javalite.activejdbc.Model;
 /**
  *This class is a model that represents the table mothers in the database.
  *Creation date 03/01/2018.
- *Last Update 03/01/2018.
+ *Last Update 10/01/2018.
  *@author Gonzalez,Cristian.
 */
 public class Mother extends Model {
