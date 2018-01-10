@@ -7,7 +7,7 @@ import org.javalite.activejdbc.Model;
 /**
  *This class is a model that represents the table expenses in the database.
  *Creation date 22/12/2017.
- *Last Update 03/01/2018.
+ *Last Update 10/01/2018.
  *@author Gonzalez,Cristian.
 */
 public class Egress extends Model{
@@ -18,6 +18,9 @@ public class Egress extends Model{
         validatePresenceOf("paid").message("Please provide your paid.");
         validatePresenceOf("psychoAssis").message("Please provide your psychoAssis.");
         validatePresenceOf("registrant").message("Please provide your registrant");
+        validatePresenceOf("date").message("Please provide your date.");
+        validatePresenceOf("month").message("Please provide your month.");
+        validatePresenceOf("year").message("Please provide your year.");
     }
 
     /**
@@ -32,11 +35,14 @@ public class Egress extends Model{
      *@param registrant
      *@param child Indicates if the child retires with the mother.
      *@param pendingControl Indicates if the mother withdraws with a pending control in the future.
+     * @param date it's the day of the exit.
+     * @param month it's the month of the exit.
+     * @param year it's the year of the exit.
      *@return true if the record can be stored correctly,otherwise false.
     */
     public static boolean setEgress(int incNum,int duration,String lactation,boolean deliveryItems,
         boolean paid,boolean psychoAssis,String talks,String registrant,boolean child,
-        Timestamp pendingControl)
+        Timestamp pendingControl,int date,int month,int year)
     {
         Egress egress = new Egress();
         egress.set("incNum",incNum);
@@ -49,6 +55,9 @@ public class Egress extends Model{
         egress.set("registrant",registrant);
         egress.set("child",child);
         egress.set("pendingControl",pendingControl);
+        egress.set("date",date);
+        egress.set("month",month);
+        egress.set("year",year);
         return egress.save();        
     }
 }
