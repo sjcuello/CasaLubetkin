@@ -85,9 +85,12 @@ public class Ingress extends Model{
      * @return the number of annual revenues from a given location in a particular year.
      */
     public static int getAnnualIncomeByDepartment(int year,String department){
-        int idPlace = Place.getIdByDepartment(department);
-        List<Ingress> annualIncomes = Ingress.where("year = '"+year+"'and idPlace = '"+idPlace+"'");
-        return annualIncomes.size();
+       List<String> localities = Place.getLocationsOfADepartment(department);
+       int count =0;
+        for (String locality : localities) {
+            count = count + getAnnualIncomeByLocality(year,locality);
+        }
+        return count;
     }
     
     /**
@@ -97,9 +100,12 @@ public class Ingress extends Model{
      * @return the number of monthly revenues from a given location in a particular year.
      */
     public static int getMonthlyIncomeByDepartment(int month,String department){
-        int idPlace = Place.getIdByDepartment(department);
-        List<Ingress> annualIncomes = Ingress.where("month = '"+month+"'and idPlace = '"+idPlace+"'");
-        return annualIncomes.size();
+       List<String> localities = Place.getLocationsOfADepartment(department);
+       int count =0;
+        for (String locality : localities) {
+            count = count + getMonthlyIncomeByLocality(month,locality);
+        }
+        return count;
     }
     
 }
