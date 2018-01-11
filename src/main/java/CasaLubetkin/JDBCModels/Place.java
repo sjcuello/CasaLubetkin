@@ -2,7 +2,6 @@ package CasaLubetkin.JDBCModels;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.javalite.activejdbc.Base;
 import org.javalite.activejdbc.Model;
 
 public class Place extends Model {
