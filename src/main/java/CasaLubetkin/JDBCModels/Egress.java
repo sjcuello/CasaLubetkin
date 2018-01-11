@@ -1,13 +1,13 @@
 package CasaLubetkin.JDBCModels;
 
 import java.sql.Timestamp;
-import org.javalite.activejdbc.Base;
+import java.util.GregorianCalendar;
 import org.javalite.activejdbc.Model;
 
 /**
  *This class is a model that represents the table expenses in the database.
  *Creation date 22/12/2017.
- *Last Update 10/01/2018.
+ *Last Update 11/01/2018.
  *@author Gonzalez,Cristian.
 */
 public class Egress extends Model{
@@ -59,5 +59,19 @@ public class Egress extends Model{
         egress.set("month",month);
         egress.set("year",year);
         return egress.save();        
+    }
+    
+    /**
+     * function that returns the date of an exit.
+     * @param incomeId is the income id associated with a particular egress.
+     * @return the date of an exit.
+     */
+    public static GregorianCalendar getExitDate(int incomeId){
+        Egress egress = Egress.findFirst("incNum = ?",incomeId);
+        int year = (int) egress.get("year");
+        int month = (int) egress.get("month");
+        int day = (int) egress.get("day");
+        GregorianCalendar date = new GregorianCalendar(year,month,day);
+        return date;
     }
 }
