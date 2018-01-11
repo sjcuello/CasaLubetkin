@@ -1,7 +1,7 @@
 package CasaLubetkin.JDBCModels;
 
+import java.util.GregorianCalendar;
 import java.util.List;
-import org.javalite.activejdbc.Base;
 import org.javalite.activejdbc.Model;
 
 /**
@@ -104,6 +104,49 @@ public class Ingress extends Model{
        int count =0;
         for (String locality : localities) {
             count = count + getMonthlyIncomeByLocality(month,locality);
+        }
+        return count;
+    }
+    
+    /**
+     * function that obtains the accumulated stay of a locality.
+     * @param consultYear is the year to consult.
+     * @param locality is the town to consult.
+     * @return the accumulated stay of a locality.
+     */
+    public static int getCumulativeStayByLocation(int consultYear,String locality){
+        int idPlace = Place.getIdByLocality(locality);
+        List<Ingress> annualIncomes = Ingress.where("year = '"+consultYear+"'and idPlace = '"+idPlace+"'");
+        int incomeId = 0;
+        int count = 0;
+        int year = 0;
+        int month = 0;
+        int day = 0;
+        GregorianCalendar dateOfAdmission = new GregorianCalendar(1900,01,01);
+        GregorianCalendar exitDate = new GregorianCalendar(1900,01,01);
+        for (Ingress ingress : annualIncomes) {
+            incomeId = (int) ingress.get("id");
+            year = (int) ingress.get("year");
+            month = (int) ingress.get("mobth");
+            day = (int) ingress.get("day");
+            dateOfAdmission = new GregorianCalendar(year,month,day);
+            exitDate = Egress.getExitDate(incomeId);
+            count = count + Tools.differenceOfDates(dateOfAdmission,exitDate);
+        }
+        return count;
+    }
+    
+    /**
+     * function that obtains the accumulated stay of a department.
+     * @param consultYear is the year to consult.
+     * @param department is the department to consult.
+     * @return the accumulated stay of a department.
+     */
+    public static int getCumulativeStayByDepartment(int consultYear,String department){
+        List<String> localities = Place.getLocationsOfADepartment(department);
+        int count = 0;
+        for (String locality : localities) {
+            count = count + getCumulativeStayByLocation(consultYear,locality);
         }
         return count;
     }
