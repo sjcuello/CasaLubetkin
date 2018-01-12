@@ -89,22 +89,6 @@ CREATE TABLE IF NOT EXISTS `phones`(
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
-/********************************* 
-* Table for represent companions *
-*********************************/
-
-CREATE TABLE IF NOT EXISTS `companions`(
-  `id` INT(11) NOT NULL,
-  created_at TIMESTAMP NULL,
-  updated_at TIMESTAMP NULL,
-  PRIMARY KEY(`id`),
-  KEY `FK_COMPANIONS_1` (`id`),
-  CONSTRAINT `FK_COMPANIONS_1` FOREIGN KEY (`id`) REFERENCES `people` (`id`)
-  ON DELETE NO ACTION
-  ON UPDATE CASCADE
-)ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
 /****************************** 
 * Table for represent mothers *
 ******************************/
@@ -244,8 +228,12 @@ CREATE TABLE IF NOT EXISTS `derivations`(
 CREATE TABLE IF NOT EXISTS `incomes`(
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `idMom` INT NOT NULL,
+  `idLocality` INT NOT NULL,
+  `date`  INT NOT NULL,
+  `month` INT NOT NULL,
+  `year`  INT NOT NULL,
   `reasonHospit` ENUM('ControlEmbarazo','Parto','ControlHijo','InterHijo')  NOT NULL,
-  `idSon` INT,
+  `idChild` INT,
   `companions` BOOLEAN NOT NULL,
   `idComp`INT,
   `registrant` VARCHAR(25) NOT NULL,
@@ -256,23 +244,31 @@ CREATE TABLE IF NOT EXISTS `incomes`(
   CONSTRAINT `FK_INCOMES_1` FOREIGN KEY (`idMom`) REFERENCES `people` (`id`)
   ON DELETE NO ACTION
   ON UPDATE CASCADE,
-  KEY `FK_INCOMES_2` (`idSon`),
-  CONSTRAINT `FK_INCOMES_2` FOREIGN KEY (`idSon`) REFERENCES `people` (`id`)
+  KEY `FK_INCOMES_2` (`idChild`),
+  CONSTRAINT `FK_INCOMES_2` FOREIGN KEY (`idChild`) REFERENCES `people` (`id`)
   ON DELETE NO ACTION
   ON UPDATE CASCADE,
   KEY `FK_INCOMES_3` (`idComp`),
-  CONSTRAINT `FK_INCOMES_3` FOREIGN KEY (`idComp`) REFERENCES `companions` (`id`)
+  CONSTRAINT `FK_INCOMES_3` FOREIGN KEY (`idComp`) REFERENCES `people` (`id`)
+  ON DELETE NO ACTION
+  ON UPDATE CASCADE,
+  KEY `FK_INCOMES_4` (`idLocality`),
+  CONSTRAINT `FK_INCOMES_4` FOREIGN KEY (`idLocality`) REFERENCES `places` (`id`)
   ON DELETE NO ACTION
   ON UPDATE CASCADE
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
-/***************************** 
+/*****************************
 * Table for represent egress *
 *****************************/
 
-CREATE TABLE IF NOT EXISTS `egress`(
+CREATE TABLE IF NOT EXISTS `expense`(
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
   `incNum` INT NOT NULL,
+  `date`  INT NOT NULL,
+  `month` INT NOT NULL,
+  `year`  INT NOT NULL,
   `duration` INT NOT NULL,
   `lactation` ENUM('Total','Complementaria'),
   `deliveryItems` BOOLEAN NOT NULL,
@@ -280,11 +276,11 @@ CREATE TABLE IF NOT EXISTS `egress`(
   `psychoAssis` BOOLEAN NOT NULL,
   `talks` ENUM('Lactancia', 'CADA', 'Alta_Segura', 'RCP', 'At._Temp'),
   `registrant` VARCHAR(25) NOT NULL,
-  `Son` BOOLEAN,
-  `pendingControl` DATE,
+  `child` BOOLEAN,
+  `pendingControl` TIMESTAMP,
   created_at TIMESTAMP NULL,
-  updated_at TIMESTAMP NULL, 
-  PRIMARY KEY (`incNum`),
+  updated_at TIMESTAMP NULL,
+  PRIMARY KEY (`id`),
   KEY `FK_EGRESS_1` (`incNum`),
   CONSTRAINT `FK_EGRESS_1` FOREIGN KEY (`incNum`) REFERENCES `incomes` (`id`)
   ON DELETE NO ACTION
