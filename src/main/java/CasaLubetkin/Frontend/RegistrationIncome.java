@@ -9,7 +9,7 @@ package CasaLubetkin.Frontend;
  *
  * @author santiago
  */
-public class Registration extends javax.swing.JFrame {
+public class RegistrationIncome extends javax.swing.JFrame {
 
     /**
      * Creates new form Registration
@@ -18,36 +18,20 @@ public class Registration extends javax.swing.JFrame {
     * Variable that will be used to store the type of view that will be rendered
     * true = ingress / false = egress
     */
-    private static boolean select;
     
     //@param s will be used to store the type of view
     //true == panelIng / false == panelEg
-    public Registration(boolean s) {
+    public RegistrationIncome() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setTitle("Casa Lubetkin");
-        Registration.select = s;
-        if (s) { 
-            panelRegEg.setVisible(false);
-            panelRegIng.setVisible(true);
-            panelTypeTreatment.setVisible(false);
-            panelDataMotherChild.setVisible(false);
-        } else {
-            panelRegIng.setVisible(false);
-            panelRegEg.setVisible(true);
-        }
+        this.setTitle("Casa Lubetkin");    
+        panelRegIng.setVisible(true);
+        panelTypeTreatment.setVisible(false);
+        panelDataMotherChild.setVisible(false);
         panelOptions.setVisible(false);
     }
     
-    public Registration() {
-        initComponents();
-        this.setLocationRelativeTo(null);
-        this.setTitle("Casa Lubetkin");
-        panelRegEg.setVisible(false);
-        panelRegIng.setVisible(false);
-        panelOptions.setVisible(false);
-    }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -58,11 +42,12 @@ public class Registration extends javax.swing.JFrame {
     private void initComponents() {
 
         tipoPersonaIngreso = new javax.swing.ButtonGroup();
+        jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
         panelPrincipal = new javax.swing.JPanel();
-        panelOptions = new javax.swing.JPanel();
-        buttonPrint = new javax.swing.JButton();
-        buttonBack = new javax.swing.JButton();
         optionButton = new javax.swing.JToggleButton();
+        panelOptions = new javax.swing.JPanel();
+        buttonBack = new javax.swing.JButton();
+        buttonPrint = new javax.swing.JButton();
         panelRegIng = new javax.swing.JPanel();
         labelIngreso = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -156,28 +141,49 @@ public class Registration extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
         jComboBox15 = new javax.swing.JComboBox<>();
-        panelRegEg = new javax.swing.JPanel();
-        labelEgreso = new javax.swing.JLabel();
+
+        jRadioButtonMenuItem1.setSelected(true);
+        jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(1200, 700));
         setResizable(false);
 
         panelPrincipal.setPreferredSize(new java.awt.Dimension(1200, 700));
+        panelPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        optionButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconOption.png"))); // NOI18N
+        optionButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        optionButton.setMaximumSize(new java.awt.Dimension(55, 55));
+        optionButton.setMinimumSize(new java.awt.Dimension(55, 55));
+        optionButton.setOpaque(true);
+        optionButton.setPreferredSize(new java.awt.Dimension(55, 55));
+        optionButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optionButtonActionPerformed(evt);
+            }
+        });
+        panelPrincipal.add(optionButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
 
         panelOptions.setBackground(new java.awt.Color(255, 255, 204));
         panelOptions.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 102)));
 
-        buttonPrint.setText("Imprimir ");
-        buttonPrint.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonPrintActionPerformed(evt);
-            }
-        });
-
-        buttonBack.setText("Volver al menu");
+        buttonBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconBack.png"))); // NOI18N
+        buttonBack.setFocusTraversalPolicyProvider(true);
+        buttonBack.setMaximumSize(new java.awt.Dimension(55, 55));
+        buttonBack.setMinimumSize(new java.awt.Dimension(55, 55));
+        buttonBack.setPreferredSize(new java.awt.Dimension(55, 55));
         buttonBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonBackActionPerformed(evt);
+            }
+        });
+
+        buttonPrint.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconPrint.png"))); // NOI18N
+        buttonPrint.setMaximumSize(new java.awt.Dimension(55, 55));
+        buttonPrint.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonPrintActionPerformed(evt);
             }
         });
 
@@ -185,46 +191,34 @@ public class Registration extends javax.swing.JFrame {
         panelOptions.setLayout(panelOptionsLayout);
         panelOptionsLayout.setHorizontalGroup(
             panelOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOptionsLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(buttonBack, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(panelOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelOptionsLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(buttonPrint, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                    .addContainerGap()))
+            .addComponent(buttonPrint, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(buttonBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         panelOptionsLayout.setVerticalGroup(
             panelOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOptionsLayout.createSequentialGroup()
-                .addGap(81, 81, 81)
-                .addComponent(buttonBack, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(505, Short.MAX_VALUE))
-            .addGroup(panelOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelOptionsLayout.createSequentialGroup()
-                    .addGap(21, 21, 21)
-                    .addComponent(buttonPrint, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(563, Short.MAX_VALUE)))
+                .addComponent(buttonPrint, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buttonBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        optionButton.setText("Opciones");
-        optionButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        optionButton.setOpaque(true);
-        optionButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                optionButtonActionPerformed(evt);
-            }
-        });
+        panelPrincipal.add(panelOptions, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 72, -1, -1));
 
-        panelRegIng.setPreferredSize(new java.awt.Dimension(972, 678));
+        panelRegIng.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        panelRegIng.setMaximumSize(new java.awt.Dimension(1114, 678));
+        panelRegIng.setMinimumSize(new java.awt.Dimension(1114, 678));
+        panelRegIng.setPreferredSize(new java.awt.Dimension(1114, 678));
+        panelRegIng.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelIngreso.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         labelIngreso.setText("Registrar ingreso");
+        panelRegIng.add(labelIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(439, 5, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel2.setText("Habitacion Nº:");
         jLabel2.setToolTipText("");
+        panelRegIng.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 69, -1, -1));
 
         jTextField1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jTextField1.setToolTipText("");
@@ -233,10 +227,12 @@ public class Registration extends javax.swing.JFrame {
                 jTextField1ActionPerformed(evt);
             }
         });
+        panelRegIng.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 66, 43, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel3.setText("Datos basicos");
         jLabel3.setToolTipText("");
+        panelRegIng.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 45, 95, -1));
 
         jLabel17.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel17.setText("Datos de salud de madre ");
@@ -370,11 +366,12 @@ public class Registration extends javax.swing.JFrame {
             .addGroup(panelLastInternmentLayout.createSequentialGroup()
                 .addGroup(panelLastInternmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelLastInternmentLayout.createSequentialGroup()
-                        .addGap(26, 26, 26)
                         .addGroup(panelLastInternmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel35)
                             .addGroup(panelLastInternmentLayout.createSequentialGroup()
-                                .addGap(10, 10, 10)
+                                .addGap(26, 26, 26)
+                                .addComponent(jLabel35))
+                            .addGroup(panelLastInternmentLayout.createSequentialGroup()
+                                .addGap(36, 36, 36)
                                 .addComponent(jComboBox12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jComboBox13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -416,13 +413,48 @@ public class Registration extends javax.swing.JFrame {
         panelDataMotherChildLayout.setHorizontalGroup(
             panelDataMotherChildLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelDataMotherChildLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelDataMotherChildLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelDataMotherChildLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(panelDataMotherChildLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelDataMotherChildLayout.createSequentialGroup()
+                                .addComponent(jLabel33)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(panelDataMotherChildLayout.createSequentialGroup()
+                                .addGroup(panelDataMotherChildLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(panelDataMotherChildLayout.createSequentialGroup()
+                                        .addComponent(jLabel37)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextField22))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDataMotherChildLayout.createSequentialGroup()
+                                        .addComponent(jLabel34)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextField20))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDataMotherChildLayout.createSequentialGroup()
+                                        .addComponent(jLabel26)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel22)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(rbLastInternment)))
+                        .addGap(18, 18, 18)
+                        .addComponent(panelLastInternment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel29)))
+            .addGroup(panelDataMotherChildLayout.createSequentialGroup()
                 .addGroup(panelDataMotherChildLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelDataMotherChildLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(panelDataMotherChildLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelDataMotherChildLayout.createSequentialGroup()
                                 .addGap(19, 19, 19)
-                                .addGroup(panelDataMotherChildLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(panelDataMotherChildLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(panelDataMotherChildLayout.createSequentialGroup()
                                         .addComponent(jLabel27)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -434,7 +466,7 @@ public class Registration extends javax.swing.JFrame {
                                         .addGap(18, 18, 18)
                                         .addComponent(jLabel31)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jTextField17))
                                     .addGroup(panelDataMotherChildLayout.createSequentialGroup()
                                         .addComponent(jLabel23)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -479,41 +511,8 @@ public class Registration extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel21)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(panelDataMotherChildLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(panelDataMotherChildLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelDataMotherChildLayout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addGroup(panelDataMotherChildLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(panelDataMotherChildLayout.createSequentialGroup()
-                                        .addComponent(jLabel26)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel22)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(rbLastInternment))
-                                    .addGroup(panelDataMotherChildLayout.createSequentialGroup()
-                                        .addComponent(jLabel33)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(panelDataMotherChildLayout.createSequentialGroup()
-                                        .addComponent(jLabel34)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(panelDataMotherChildLayout.createSequentialGroup()
-                                        .addComponent(jLabel37)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(panelLastInternment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(panelDataMotherChildLayout.createSequentialGroup()
-                                .addComponent(jLabel29)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addContainerGap())
+                                .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(230, Short.MAX_VALUE))
         );
         panelDataMotherChildLayout.setVerticalGroup(
             panelDataMotherChildLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -581,16 +580,21 @@ public class Registration extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        panelRegIng.add(panelDataMotherChild, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 344, -1, -1));
+
         jLabel4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel4.setText("Nombre:");
         jLabel4.setToolTipText("");
+        panelRegIng.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 101, -1, -1));
 
         jTextField3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jTextField3.setToolTipText("");
+        panelRegIng.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 98, 181, -1));
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel5.setText("Documento:");
         jLabel5.setToolTipText("");
+        panelRegIng.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(541, 101, -1, -1));
 
         jTextField4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jTextField4.setToolTipText("");
@@ -599,44 +603,57 @@ public class Registration extends javax.swing.JFrame {
                 jTextField4ActionPerformed(evt);
             }
         });
+        panelRegIng.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(618, 98, 123, -1));
+        panelRegIng.add(list1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
+        panelRegIng.add(choice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
 
         Dia.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         Dia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         Dia.setToolTipText("");
+        panelRegIng.add(Dia, new org.netbeans.lib.awtextra.AbsoluteConstraints(218, 133, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel6.setText("Fecha de nacimiento (dd/mm/aa): ");
         jLabel6.setToolTipText("");
+        panelRegIng.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 136, -1, -1));
 
         jComboBox1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "11", "12" }));
         jComboBox1.setToolTipText("");
+        panelRegIng.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(264, 133, -1, -1));
 
         jComboBox2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1940", "1941", "1942", "1943", "1944", "1945", "1946", "1947", "1948", "1949", "1950", "1951", "1952", "1953", "1954", "1955", "1956", "1957", "1958", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", " " }));
         jComboBox2.setToolTipText("");
+        panelRegIng.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 133, -1, -1));
 
         jLabel10.setText("jLabel10");
+        panelRegIng.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
 
         jLabel7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel7.setText("Estado civil:");
         jLabel7.setToolTipText("");
+        panelRegIng.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(753, 101, -1, -1));
 
         jComboBox3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Soltera", "Casada", "En concubinato", "Divorciada", "Viuda" }));
         jComboBox3.setToolTipText("");
+        panelRegIng.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(828, 98, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel8.setText("Ocupacion:");
         jLabel8.setToolTipText("");
+        panelRegIng.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(382, 136, -1, -1));
 
         jComboBox4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ama de casa", "Empleada", "Cuentapropista", "Changarin", "Desempleada" }));
         jComboBox4.setToolTipText("");
+        panelRegIng.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(454, 133, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel9.setText("Apellido:");
         jLabel9.setToolTipText("");
+        panelRegIng.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 101, -1, -1));
 
         jTextField5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jTextField5.setToolTipText("");
@@ -645,16 +662,20 @@ public class Registration extends javax.swing.JFrame {
                 jTextField5ActionPerformed(evt);
             }
         });
+        panelRegIng.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(342, 98, 181, -1));
 
         jLabel11.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel11.setText("Nivel de estudio:");
         jLabel11.setToolTipText("");
+        panelRegIng.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(583, 136, -1, -1));
 
         jComboBox5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Primario completo", "Primario incompleto", "Secundario completo", "Secundario incompleto", "No sabe leer y escribir", "Otro" }));
         jComboBox5.setToolTipText("");
+        panelRegIng.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(684, 133, -1, -1));
 
         checkbox1.setLabel("checkbox1");
+        panelRegIng.add(checkbox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
 
         tipoPersonaIngreso.add(rbMother);
         rbMother.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -665,6 +686,7 @@ public class Registration extends javax.swing.JFrame {
                 rbMotherActionPerformed(evt);
             }
         });
+        panelRegIng.add(rbMother, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 65, -1, -1));
 
         tipoPersonaIngreso.add(rbAccompanyingFamily);
         rbAccompanyingFamily.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -675,6 +697,7 @@ public class Registration extends javax.swing.JFrame {
                 rbAccompanyingFamilyActionPerformed(evt);
             }
         });
+        panelRegIng.add(rbAccompanyingFamily, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 65, -1, -1));
 
         tipoPersonaIngreso.add(rbMotherwBaby);
         rbMotherwBaby.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -685,6 +708,7 @@ public class Registration extends javax.swing.JFrame {
                 rbMotherwBabyActionPerformed(evt);
             }
         });
+        panelRegIng.add(rbMotherwBaby, new org.netbeans.lib.awtextra.AbsoluteConstraints(407, 65, -1, -1));
 
         tipoPersonaIngreso.add(rbAccompanyingFamilyTransit);
         rbAccompanyingFamilyTransit.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -695,10 +719,12 @@ public class Registration extends javax.swing.JFrame {
                 rbAccompanyingFamilyTransitActionPerformed(evt);
             }
         });
+        panelRegIng.add(rbAccompanyingFamilyTransit, new org.netbeans.lib.awtextra.AbsoluteConstraints(588, 65, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel1.setText("Domicilio:");
         jLabel1.setToolTipText("");
+        panelRegIng.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 163, -1, -1));
 
         jTextField2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jTextField2.setToolTipText("");
@@ -707,17 +733,21 @@ public class Registration extends javax.swing.JFrame {
                 jTextField2ActionPerformed(evt);
             }
         });
+        panelRegIng.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(79, 160, 179, -1));
 
         jLabel12.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel12.setText("Localidad:");
         jLabel12.setToolTipText("");
+        panelRegIng.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(274, 163, -1, -1));
 
         jTextField6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jTextField6.setToolTipText("");
+        panelRegIng.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(341, 160, 192, -1));
 
         jLabel13.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel13.setText("Provincia:");
         jLabel13.setToolTipText("");
+        panelRegIng.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(748, 163, -1, -1));
 
         jComboBox6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cordoba", "San Luis", "La Pampa", "Buenos Aires", "Santa Fe", "Santiago del Estero", "Catamarca", "La Rioja" }));
@@ -727,20 +757,25 @@ public class Registration extends javax.swing.JFrame {
                 jComboBox6ActionPerformed(evt);
             }
         });
+        panelRegIng.add(jComboBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(805, 160, -1, -1));
 
         jLabel14.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel14.setText("Telefono particular:");
         jLabel14.setToolTipText("");
+        panelRegIng.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
 
         jTextField7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jTextField7.setToolTipText("");
+        panelRegIng.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 187, 172, -1));
 
         jLabel15.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel15.setText("Telefono familiar:");
         jLabel15.setToolTipText("");
+        panelRegIng.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 190, -1, -1));
 
         jTextField8.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jTextField8.setToolTipText("");
+        panelRegIng.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 187, 182, -1));
 
         rbMedicalTreatment.setText("Tratamiento medico");
         rbMedicalTreatment.addActionListener(new java.awt.event.ActionListener() {
@@ -748,6 +783,7 @@ public class Registration extends javax.swing.JFrame {
                 rbMedicalTreatmentActionPerformed(evt);
             }
         });
+        panelRegIng.add(rbMedicalTreatment, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 209, -1, -1));
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -779,231 +815,23 @@ public class Registration extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        panelRegIng.add(panelTypeTreatment, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 224, -1, -1));
+
         jLabel38.setText("Departamento:");
+        panelRegIng.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(551, 164, -1, -1));
 
         jComboBox15.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        panelRegIng.add(jComboBox15, new org.netbeans.lib.awtextra.AbsoluteConstraints(628, 161, 96, -1));
 
-        javax.swing.GroupLayout panelRegIngLayout = new javax.swing.GroupLayout(panelRegIng);
-        panelRegIng.setLayout(panelRegIngLayout);
-        panelRegIngLayout.setHorizontalGroup(
-            panelRegIngLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelDataMotherChild, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(panelRegIngLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelRegIngLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRegIngLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(panelRegIngLayout.createSequentialGroup()
-                            .addGroup(panelRegIngLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(panelRegIngLayout.createSequentialGroup()
-                                    .addGap(361, 361, 361)
-                                    .addComponent(labelIngreso))
-                                .addGroup(panelRegIngLayout.createSequentialGroup()
-                                    .addComponent(rbMedicalTreatment)
-                                    .addGap(14, 14, 14)
-                                    .addComponent(panelTypeTreatment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGap(0, 0, Short.MAX_VALUE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRegIngLayout.createSequentialGroup()
-                            .addGroup(panelRegIngLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(panelRegIngLayout.createSequentialGroup()
-                                    .addComponent(jLabel2)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(rbMother)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(rbAccompanyingFamily)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(rbMotherwBaby)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(rbAccompanyingFamilyTransit))
-                                .addGroup(panelRegIngLayout.createSequentialGroup()
-                                    .addComponent(jLabel4)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(26, 26, 26)
-                                    .addComponent(jLabel9)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jLabel5)
-                                    .addGap(10, 10, 10)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(12, 12, 12)
-                                    .addComponent(jLabel7)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(panelRegIngLayout.createSequentialGroup()
-                                    .addGroup(panelRegIngLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelRegIngLayout.createSequentialGroup()
-                                            .addComponent(jLabel1)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jTextField2))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelRegIngLayout.createSequentialGroup()
-                                            .addComponent(jLabel6)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(Dia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(panelRegIngLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(panelRegIngLayout.createSequentialGroup()
-                                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(jLabel8)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(jLabel11)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(panelRegIngLayout.createSequentialGroup()
-                                            .addGap(10, 10, 10)
-                                            .addComponent(jLabel12)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(jLabel38)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jComboBox15, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(24, 24, 24)
-                                            .addComponent(jLabel13)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGroup(panelRegIngLayout.createSequentialGroup()
-                                    .addComponent(jLabel14)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jLabel15)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGap(26, 26, 26)))
-                    .addGroup(panelRegIngLayout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
-        );
-        panelRegIngLayout.setVerticalGroup(
-            panelRegIngLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelRegIngLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(labelIngreso)
-                .addGap(12, 12, 12)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelRegIngLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rbMother)
-                    .addComponent(rbAccompanyingFamily)
-                    .addComponent(rbMotherwBaby)
-                    .addComponent(rbAccompanyingFamilyTransit))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelRegIngLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
-                .addGroup(panelRegIngLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(Dia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8)
-                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11)
-                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelRegIngLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel38)
-                    .addComponent(jComboBox15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13)
-                    .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(panelRegIngLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelRegIngLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelRegIngLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel14)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel15)
-                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rbMedicalTreatment))
-                    .addGroup(panelRegIngLayout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(panelTypeTreatment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelDataMotherChild, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        panelRegEg.setPreferredSize(new java.awt.Dimension(972, 678));
-
-        labelEgreso.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        labelEgreso.setText("Registrar egreso");
-
-        javax.swing.GroupLayout panelRegEgLayout = new javax.swing.GroupLayout(panelRegEg);
-        panelRegEg.setLayout(panelRegEgLayout);
-        panelRegEgLayout.setHorizontalGroup(
-            panelRegEgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelRegEgLayout.createSequentialGroup()
-                .addGap(400, 400, 400)
-                .addComponent(labelEgreso)
-                .addContainerGap(426, Short.MAX_VALUE))
-        );
-        panelRegEgLayout.setVerticalGroup(
-            panelRegEgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelRegEgLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(labelEgreso)
-                .addContainerGap(645, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout panelPrincipalLayout = new javax.swing.GroupLayout(panelPrincipal);
-        panelPrincipal.setLayout(panelPrincipalLayout);
-        panelPrincipalLayout.setHorizontalGroup(
-            panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelPrincipalLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelOptions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(optionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelRegEg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelRegIng, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        panelPrincipalLayout.setVerticalGroup(
-            panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelPrincipalLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelRegIng, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(panelPrincipalLayout.createSequentialGroup()
-                        .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(panelRegEg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panelPrincipalLayout.createSequentialGroup()
-                                .addComponent(optionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(panelOptions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
+        panelPrincipal.add(panelRegIng, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, 680));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(panelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1012,6 +840,72 @@ public class Registration extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void rbMedicalTreatmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbMedicalTreatmentActionPerformed
+        if(rbMedicalTreatment.isSelected())
+        panelTypeTreatment.setVisible(true);
+        else
+        panelTypeTreatment.setVisible(false);
+    }//GEN-LAST:event_rbMedicalTreatmentActionPerformed
+
+    private void jComboBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox6ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void rbAccompanyingFamilyTransitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAccompanyingFamilyTransitActionPerformed
+        panelDataMotherChild.setVisible(false);
+    }//GEN-LAST:event_rbAccompanyingFamilyTransitActionPerformed
+
+    private void rbMotherwBabyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbMotherwBabyActionPerformed
+        panelDataMotherChild.setVisible(false);
+    }//GEN-LAST:event_rbMotherwBabyActionPerformed
+
+    private void rbAccompanyingFamilyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAccompanyingFamilyActionPerformed
+        panelDataMotherChild.setVisible(false);
+    }//GEN-LAST:event_rbAccompanyingFamilyActionPerformed
+
+    private void rbMotherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbMotherActionPerformed
+        if (rbMother.isSelected()){
+            panelDataMotherChild.setVisible(true);
+            panelLastInternment.setVisible(false);
+        }else
+        panelDataMotherChild.setVisible(false);
+    }//GEN-LAST:event_rbMotherActionPerformed
+
+    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField5ActionPerformed
+
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4ActionPerformed
+
+    private void rbLastInternmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbLastInternmentActionPerformed
+        if(rbLastInternment.isSelected())
+        panelLastInternment.setVisible(true);
+        else
+        panelLastInternment.setVisible(false);
+    }//GEN-LAST:event_rbLastInternmentActionPerformed
+
+    private void rbPregnancyControlsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbPregnancyControlsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbPregnancyControlsActionPerformed
+
+    private void jComboBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox7ActionPerformed
+
+    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField9ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void optionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optionButtonActionPerformed
         panelOptions.setVisible(false);
@@ -1032,72 +926,6 @@ public class Registration extends javax.swing.JFrame {
         mp.setVisible(true);
     }//GEN-LAST:event_buttonBackActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
-
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void rbAccompanyingFamilyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAccompanyingFamilyActionPerformed
-        panelDataMotherChild.setVisible(false);
-    }//GEN-LAST:event_rbAccompanyingFamilyActionPerformed
-
-    private void rbAccompanyingFamilyTransitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAccompanyingFamilyTransitActionPerformed
-        panelDataMotherChild.setVisible(false);
-    }//GEN-LAST:event_rbAccompanyingFamilyTransitActionPerformed
-
-    private void rbMotherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbMotherActionPerformed
-        if (rbMother.isSelected()){
-            panelDataMotherChild.setVisible(true);
-            panelLastInternment.setVisible(false);
-        }else
-            panelDataMotherChild.setVisible(false);
-    }//GEN-LAST:event_rbMotherActionPerformed
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
-    private void rbMedicalTreatmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbMedicalTreatmentActionPerformed
-        if(rbMedicalTreatment.isSelected())
-            panelTypeTreatment.setVisible(true);
-        else
-            panelTypeTreatment.setVisible(false);
-    }//GEN-LAST:event_rbMedicalTreatmentActionPerformed
-
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
-
-    private void jComboBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox7ActionPerformed
-
-    private void rbPregnancyControlsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbPregnancyControlsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rbPregnancyControlsActionPerformed
-
-    private void jComboBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox6ActionPerformed
-
-    private void rbMotherwBabyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbMotherwBabyActionPerformed
-        panelDataMotherChild.setVisible(false);
-    }//GEN-LAST:event_rbMotherwBabyActionPerformed
-
-    private void rbLastInternmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbLastInternmentActionPerformed
-        if(rbLastInternment.isSelected())
-            panelLastInternment.setVisible(true);
-        else
-            panelLastInternment.setVisible(false);
-    }//GEN-LAST:event_rbLastInternmentActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -1115,20 +943,21 @@ public class Registration extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Registration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistrationIncome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Registration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistrationIncome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Registration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistrationIncome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Registration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistrationIncome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Registration().setVisible(true);
+                new RegistrationIncome().setVisible(true);
             }
         });
     }
@@ -1192,6 +1021,7 @@ public class Registration extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
@@ -1216,7 +1046,6 @@ public class Registration extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
-    private javax.swing.JLabel labelEgreso;
     private javax.swing.JLabel labelIngreso;
     private java.awt.List list1;
     private javax.swing.JToggleButton optionButton;
@@ -1224,7 +1053,6 @@ public class Registration extends javax.swing.JFrame {
     private javax.swing.JPanel panelLastInternment;
     private javax.swing.JPanel panelOptions;
     private javax.swing.JPanel panelPrincipal;
-    private javax.swing.JPanel panelRegEg;
     private javax.swing.JPanel panelRegIng;
     private javax.swing.JPanel panelTypeTreatment;
     private javax.swing.JRadioButton rbAccompanyingFamily;

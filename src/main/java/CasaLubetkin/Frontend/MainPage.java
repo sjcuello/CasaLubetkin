@@ -49,6 +49,8 @@ public class MainPage extends javax.swing.JFrame {
         setName("MainPage"); // NOI18N
         setResizable(false);
 
+        panelPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         panelNotifications.setBackground(new java.awt.Color(255, 255, 255));
         panelNotifications.setBorder(new javax.swing.border.MatteBorder(null));
 
@@ -71,10 +73,16 @@ public class MainPage extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        panelPrincipal.add(panelNotifications, new org.netbeans.lib.awtextra.AbsoluteConstraints(826, 11, -1, 624));
+
         panelOptions.setBackground(new java.awt.Color(255, 255, 204));
         panelOptions.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 102)));
 
-        buttonModifyI.setText("Cerrar sesión");
+        buttonModifyI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconExit.png"))); // NOI18N
+        buttonModifyI.setBorderPainted(false);
+        buttonModifyI.setMaximumSize(new java.awt.Dimension(55, 55));
+        buttonModifyI.setMinimumSize(new java.awt.Dimension(55, 55));
+        buttonModifyI.setPreferredSize(new java.awt.Dimension(55, 55));
         buttonModifyI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonModifyIActionPerformed(evt);
@@ -82,6 +90,9 @@ public class MainPage extends javax.swing.JFrame {
         });
 
         buttonModifyE.setText("Modificar un ingreso");
+        buttonModifyE.setMaximumSize(new java.awt.Dimension(55, 55));
+        buttonModifyE.setMinimumSize(new java.awt.Dimension(55, 55));
+        buttonModifyE.setPreferredSize(new java.awt.Dimension(55, 55));
         buttonModifyE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonModifyEActionPerformed(evt);
@@ -89,39 +100,33 @@ public class MainPage extends javax.swing.JFrame {
         });
 
         buttonModifyS.setText("Modificar un egreso");
+        buttonModifyS.setMaximumSize(new java.awt.Dimension(55, 55));
+        buttonModifyS.setMinimumSize(new java.awt.Dimension(55, 55));
+        buttonModifyS.setPreferredSize(new java.awt.Dimension(55, 55));
 
         javax.swing.GroupLayout panelOptionsLayout = new javax.swing.GroupLayout(panelOptions);
         panelOptions.setLayout(panelOptionsLayout);
         panelOptionsLayout.setHorizontalGroup(
             panelOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOptionsLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(buttonModifyS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonModifyI, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-            .addGroup(panelOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelOptionsLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(buttonModifyE, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                    .addContainerGap()))
+            .addComponent(buttonModifyE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(buttonModifyS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(buttonModifyI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         panelOptionsLayout.setVerticalGroup(
             panelOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOptionsLayout.createSequentialGroup()
-                .addGap(81, 81, 81)
-                .addComponent(buttonModifyS, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(buttonModifyI)
-                .addContainerGap())
-            .addGroup(panelOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelOptionsLayout.createSequentialGroup()
-                    .addGap(21, 21, 21)
-                    .addComponent(buttonModifyE, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(558, Short.MAX_VALUE)))
+                .addComponent(buttonModifyE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buttonModifyS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buttonModifyI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        buttonRegI.setText("Registrar ingreso ");
+        panelPrincipal.add(panelOptions, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 72, -1, -1));
+
+        buttonRegI.setText("Registrar ingreso");
+        buttonRegI.setBorder(null);
         buttonRegI.setName(""); // NOI18N
         buttonRegI.setPreferredSize(new java.awt.Dimension(75, 25));
         buttonRegI.addActionListener(new java.awt.event.ActionListener() {
@@ -150,62 +155,38 @@ public class MainPage extends javax.swing.JFrame {
         panelButtons.setLayout(panelButtonsLayout);
         panelButtonsLayout.setHorizontalGroup(
             panelButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelButtonsLayout.createSequentialGroup()
-                .addContainerGap(124, Short.MAX_VALUE)
-                .addGroup(panelButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+            .addGroup(panelButtonsLayout.createSequentialGroup()
+                .addGap(72, 72, 72)
+                .addGroup(panelButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(buttonReaC, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
-                    .addComponent(buttonRegE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonRegE, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
                     .addComponent(buttonRegI, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(171, 171, 171))
+                .addContainerGap(109, Short.MAX_VALUE))
         );
         panelButtonsLayout.setVerticalGroup(
             panelButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelButtonsLayout.createSequentialGroup()
-                .addGap(66, 66, 66)
-                .addComponent(buttonRegI, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55)
+                .addGap(63, 63, 63)
+                .addComponent(buttonRegI, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47)
                 .addComponent(buttonRegE, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56)
+                .addGap(39, 39, 39)
                 .addComponent(buttonReaC, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(226, Short.MAX_VALUE))
+                .addContainerGap(258, Short.MAX_VALUE))
         );
 
-        optionButton.setText("Opciones");
+        panelPrincipal.add(panelButtons, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 11, -1, -1));
+
+        optionButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconOption.png"))); // NOI18N
+        optionButton.setMaximumSize(new java.awt.Dimension(55, 55));
+        optionButton.setMinimumSize(new java.awt.Dimension(55, 55));
+        optionButton.setPreferredSize(new java.awt.Dimension(55, 55));
         optionButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 optionButtonActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout panelPrincipalLayout = new javax.swing.GroupLayout(panelPrincipal);
-        panelPrincipal.setLayout(panelPrincipalLayout);
-        panelPrincipalLayout.setHorizontalGroup(
-            panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPrincipalLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(optionButton, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
-                    .addComponent(panelOptions, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
-                .addComponent(panelButtons, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(panelNotifications, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        panelPrincipalLayout.setVerticalGroup(
-            panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPrincipalLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panelPrincipalLayout.createSequentialGroup()
-                        .addComponent(optionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(panelButtons, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(panelOptions, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(panelNotifications, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
+        panelPrincipal.add(optionButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -222,13 +203,13 @@ public class MainPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonRegIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRegIActionPerformed
-        Registration r = new Registration(true);
+        RegistrationIncome r = new RegistrationIncome();
         this.setVisible(false);
         r.setVisible(true);
     }//GEN-LAST:event_buttonRegIActionPerformed
 
     private void buttonRegEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRegEActionPerformed
-        Registration r = new Registration(false);
+        RegistrationEgress r = new RegistrationEgress();
         this.setVisible(false);
         r.setVisible(true);
     }//GEN-LAST:event_buttonRegEActionPerformed

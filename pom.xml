@@ -11,7 +11,7 @@
   <url>http://maven.apache.org</url>
   
   <properties>
-    <activejdbc.version>1.4.13.j7</activejdbc.version>
+    <activejdbc.version>1.4.13.j7</activejdbc.version>  
     <environments>development.test,development</environments>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
@@ -80,6 +80,13 @@
       </plugin>
     </plugins>
   </build>
+    <repositories>
+        <repository>
+            <id>unknown-jars-temp-repo</id>
+            <name>A temporary repository created by NetBeans for libraries and jars it could not identify. Please replace the dependencies in this repository with correct ones and delete this repository.</name>
+            <url>file:${project.basedir}/lib</url>
+        </repository>
+    </repositories>
     <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -109,6 +116,11 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.6</version>
+        </dependency>
+        <dependency>
+            <groupId>unknown.binary</groupId>
+            <artifactId>AbsoluteLayout</artifactId>
+            <version>SNAPSHOT</version>
         </dependency>
     </dependencies>
 </project>
